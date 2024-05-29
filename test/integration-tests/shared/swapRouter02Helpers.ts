@@ -1,8 +1,8 @@
 import JSBI from 'jsbi'
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers'
-import { BigintIsh, CurrencyAmount, Token } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { encodeSqrtRatioX96, FeeAmount, nearestUsableTick, Pool, TickMath, TICK_SPACINGS } from '@uniswap/v3-sdk'
+import { BigintIsh, CurrencyAmount, Token } from 'smartswap-sdk-core'
+import { Pair } from 'smartswap-v2-sdk'
+import { encodeSqrtRatioX96, FeeAmount, nearestUsableTick, Pool, TickMath, TICK_SPACINGS } from 'smartswap-v3-sdk'
 import { getV2PoolReserves, WETH, DAI, USDC, USDT } from './mainnetForkHelpers'
 import { BigNumber } from 'ethers'
 

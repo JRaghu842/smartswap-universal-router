@@ -4,8 +4,8 @@ pragma solidity ^0.8.15;
 import 'forge-std/Test.sol';
 import {Permit2} from 'permit2/src/Permit2.sol';
 import {ERC20} from 'solmate/src/tokens/ERC20.sol';
-import {IUniswapV2Factory} from '@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol';
-import {IUniswapV2Pair} from '@uniswap/v2-core/contracts/interfaces/IUniswapV2Pair.sol';
+import {IUniswapV2Factory} from 'smartswap-v2-core/contracts/interfaces/IUniswapV2Factory.sol';
+import {IUniswapV2Pair} from 'smartswap-v2-core/contracts/interfaces/IUniswapV2Pair.sol';
 import {UniversalRouter} from '../../contracts/UniversalRouter.sol';
 import {Payments} from '../../contracts/modules/Payments.sol';
 import {Constants} from '../../contracts/libraries/Constants.sol';
@@ -177,6 +177,7 @@ abstract contract UniswapV2Test is Test {
     }
 
     function token0() internal virtual returns (address);
+
     function token1() internal virtual returns (address);
 
     function setUpTokens() internal virtual {}

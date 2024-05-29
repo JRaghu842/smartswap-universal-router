@@ -7,7 +7,7 @@ import {RewardsCollector} from './base/RewardsCollector.sol';
 import {RouterParameters} from './base/RouterImmutables.sol';
 import {PaymentsImmutables, PaymentsParameters} from './modules/PaymentsImmutables.sol';
 import {NFTImmutables, NFTParameters} from './modules/NFTImmutables.sol';
-import {UniswapImmutables, UniswapParameters} from './modules/uniswap/UniswapImmutables.sol';
+import {SmartSwapImmutables, SmartSwapParameters} from './modules/smartswap/SmartSwapImmutables.sol';
 import {Commands} from './libraries/Commands.sol';
 import {IUniversalRouter} from './interfaces/IUniversalRouter.sol';
 
@@ -17,9 +17,11 @@ contract UniversalRouter is IUniversalRouter, Dispatcher, RewardsCollector {
         _;
     }
 
-    constructor(RouterParameters memory params)
-        UniswapImmutables(
-            UniswapParameters(params.v2Factory, params.v3Factory, params.pairInitCodeHash, params.poolInitCodeHash)
+    constructor(
+        RouterParameters memory params
+    )
+        SmartSwapImmutables(
+            SmartSwapParameters(params.v2Factory, params.v3Factory, params.pairInitCodeHash, params.poolInitCodeHash)
         )
         PaymentsImmutables(PaymentsParameters(params.permit2, params.weth9, params.openseaConduit, params.sudoswap))
         NFTImmutables(
@@ -42,11 +44,11 @@ contract UniversalRouter is IUniversalRouter, Dispatcher, RewardsCollector {
     {}
 
     /// @inheritdoc IUniversalRouter
-    function execute(bytes calldata commands, bytes[] calldata inputs, uint256 deadline)
-        external
-        payable
-        checkDeadline(deadline)
-    {
+    function execute(
+        bytes calldata commands,
+        bytes[] calldata inputs,
+        uint256 deadline
+    ) external payable checkDeadline(deadline) {
         execute(commands, inputs);
     }
 
@@ -58,7 +60,7 @@ contract UniversalRouter is IUniversalRouter, Dispatcher, RewardsCollector {
         if (inputs.length != numCommands) revert LengthMismatch();
 
         // loop through all given commands, execute them and pass along outputs as defined
-        for (uint256 commandIndex = 0; commandIndex < numCommands;) {
+        for (uint256 commandIndex = 0; commandIndex < numCommands; ) {
             bytes1 command = commands[commandIndex];
 
             bytes calldata input = inputs[commandIndex];

@@ -1,20 +1,19 @@
 {
-  "name": "@uniswap/universal-router",
+  "name": "smartswap-universal-router",
   "description": "Smart contracts for Universal Router",
   "license": "GPL-2.0-or-later",
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.6.0",
+  "version": "1.0.0",
   "keywords": [
-    "uniswap",
     "router",
     "universal router",
     "swap router"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Uniswap/universal-router"
+    "url": "https://github.com/JRaghu842/smartswap-universal-router.git"
   },
   "files": [
     "contracts/base",
@@ -31,9 +30,9 @@
     "node": ">=14"
   },
   "dependencies": {
-    "@uniswap/v2-core": "1.0.1",
-    "@uniswap/v3-core": "1.0.0",
-    "@openzeppelin/contracts": "4.7.0"
+    "@openzeppelin/contracts": "4.7.0",
+    "smartswap-v2-core": "^1.0.1",
+    "smartswap-v3-core": "^1.0.2"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "1.0.4",
@@ -41,11 +40,6 @@
     "@typechain/ethers-v5": "^4.0.0",
     "@types/chai": "^4.2.6",
     "@types/mocha": "^5.2.7",
-    "@uniswap/router-sdk": "^1.3.0",
-    "@uniswap/sdk-core": "^3.0.1",
-    "@uniswap/snapshot-gas-cost": "^1.0.0",
-    "@uniswap/v2-sdk": "^3.0.1",
-    "@uniswap/v3-sdk": "^3.8.3",
     "bignumber.js": "^9.0.0",
     "chai": "^4.3.4",
     "ethers": "^5.7.2",
@@ -54,6 +48,11 @@
     "mocha-chai-jest-snapshot": "^1.1.0",
     "prettier": "^2.0.5",
     "prettier-plugin-solidity": "^1.0.0-alpha.59",
+    "smartswap-router-sdk": "^1.0.1",
+    "smartswap-sdk-core": "^1.0.4",
+    "smartswap-snapshot-gas-cost": "^1.0.0",
+    "smartswap-v2-sdk": "^1.0.2",
+    "smartswap-v3-sdk": "^1.0.5",
     "ts-generator": "^0.1.1",
     "ts-node": "^8.5.4",
     "typechain": "^4.0.0",
